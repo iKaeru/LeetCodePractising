@@ -1,0 +1,13 @@
+# Rider
+.idea
+
+# User-specific files
+*.user
+
+# Build results
+LeetCode/bin
+LeetCode/obj
+
+# Unit tests build results
+LeetCodeTests/bin
+LeetCodeTests/obj
