@@ -2,7 +2,8 @@ using System;
 
 namespace LeetCode
 {
-    // https://leetcode.com/problems/rotate-image/
+    // [medium] https://leetcode.com/problems/rotate-image/
+    // First original solution
     public static class RotateImageSolution
     {
         public static void Rotate(int[][] matrix)
@@ -77,6 +78,73 @@ namespace LeetCode
         private static (int, int) GetBordersDependingOnRow(int rowIndex, int arrLength)
         {
             return (rowIndex, arrLength - 1 - rowIndex);
+        }
+    }
+
+    // ---------- New tries after reading solution  ----------
+
+    public class RotateImageWithMatrixOperation
+    {
+        
+    }
+
+    // Helper class with basic matrix operations
+    public static class MatrixOperations
+    {
+        public static void TransposeOverMainDiagonal(int[][] matrix)
+        {
+            var size = matrix.Length;
+            for (int row = 0; row < size - 1; row++)
+            {
+                for (int column = row + 1; column < size; column++)
+                {
+                    var storedValue = matrix[row][column];
+                    matrix[row][column] = matrix[column][row];
+                    matrix[column][row] = storedValue;
+                }
+            }
+        }
+
+        public static void TransposeOverSideDiagonal(int[][] matrix)
+        {
+            var size = matrix.Length;
+            for (int row = 0; row < size - 1; row++)
+            {
+                for (int column = 0; column < size - 1 - row; column++)
+                {
+                    var storedValue = matrix[row][column];
+                    matrix[row][column] = matrix[size - 1 - column][size - 1 - row];
+                    matrix[size - 1 - column][size - 1 - row] = storedValue;
+                }
+            }
+        }
+
+        public static void ReflectLeftToRight(int[][] matrix)
+        {
+            var size = matrix.Length;
+            for (int row = 0; row < size; row++)
+            {
+                for (int column = 0; column < size / 2; column++)
+                {
+                    var storedValue = matrix[row][column];
+                    matrix[row][column] = matrix[row][size - 1 - column];
+                    matrix[row][size - 1 - column] = storedValue;
+                }
+            }
+        }
+
+        public static void ReflectTopToBottom(int[][] matrix)
+        {
+            var size = matrix.Length;
+            for (int row = 0; row < size / 2; row++)
+            {
+                for (var column = 0; column < size; column++)
+                {
+                    var storedValue = matrix[row][column];
+                    matrix[row][column] = matrix[size - 1 - row][column];
+                    matrix[size - 1 - row][column] = storedValue;
+                }
+            }
         }
     }
 }

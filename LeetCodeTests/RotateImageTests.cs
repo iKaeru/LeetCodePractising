@@ -15,6 +15,10 @@ namespace LeetCodeTests
         public void RotateImage_RotateEmpty_Success()
         {
             var inputMatrix = new[] {new int[0]};
+            var resultMatrix = new[] {new int[0]};
+
+            RotateImageSolution.Rotate(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
         }
 
         [Test]
@@ -87,7 +91,7 @@ namespace LeetCodeTests
             var resultMatrix = new[]
             {
                 new[] {11, 10, 15, 13, 2, 5}, new[] {5, 1, 14, 3, 4, 1}, new[] {3, 7, 12, 6, 8, 9},
-                new[] {2, 19, 16, 7, 10, 11}, new[] {15, 13, 17, 18, 8, 3}, new [] {10, 11, 1, 8, 9, 5}
+                new[] {2, 19, 16, 7, 10, 11}, new[] {15, 13, 17, 18, 8, 3}, new[] {10, 11, 1, 8, 9, 5}
             };
 
             RotateImageSolution.Rotate(inputMatrix);
@@ -120,6 +124,121 @@ namespace LeetCodeTests
 
             Assert.AreEqual("Given matrix is not square",
                 Assert.Catch<ArgumentException>(() => RotateImageSolution.Rotate(inputMatrix)).Message);
+        }
+
+        [Test]
+        public void TransposeOverMainDiagonal_Transpose1x1_Success()
+        {
+            var inputMatrix = new[] {new[] {1}};
+            var resultMatrix = new[] {new[] {1}};
+
+            MatrixOperations.TransposeOverMainDiagonal(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void TransposeOverMainDiagonal_Transpose2x2_Success()
+        {
+            var inputMatrix = new[] {new[] {1, 2}, new[] {3, 4}};
+            var resultMatrix = new[] {new[] {1, 3}, new[] {2, 4}};
+
+            MatrixOperations.TransposeOverMainDiagonal(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void TransposeOverMainDiagonal_Transpose3x3_Success()
+        {
+            var inputMatrix = new[] {new[] {1, 2, 3}, new[] {4, 5, 6}, new[] {7, 8, 9}};
+            var resultMatrix = new[] {new[] {1, 4, 7}, new[] {2, 5, 8}, new[] {3, 6, 9}};
+
+            MatrixOperations.TransposeOverMainDiagonal(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void TransposeOverSideDiagonal_Transpose1x1_Success()
+        {
+            var inputMatrix = new[] {new[] {1}};
+            var resultMatrix = new[] {new[] {1}};
+
+            MatrixOperations.TransposeOverSideDiagonal(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void TransposeOverSideDiagonal_Transpose2x2_Success()
+        {
+            var inputMatrix = new[] {new[] {1, 2}, new[] {3, 4}};
+            var resultMatrix = new[] {new[] {4, 2}, new[] {3, 1}};
+
+            MatrixOperations.TransposeOverSideDiagonal(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void TransposeOverSideDiagonal_Transpose3x3_Success()
+        {
+            var inputMatrix = new[] {new[] {1, 2, 3}, new[] {4, 5, 6}, new[] {7, 8, 9}};
+            var resultMatrix = new[] {new[] {9, 6, 3}, new[] {8, 5, 2}, new[] {7, 4, 1}};
+
+            MatrixOperations.TransposeOverSideDiagonal(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void ReflectLeftToRight_Reflect1x1_Success()
+        {
+            var inputMatrix = new[] {new[] {1}};
+            var resultMatrix = new[] {new[] {1}};
+
+            MatrixOperations.ReflectLeftToRight(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        public void ReflectLeftToRight_Reflect2x2_Success()
+        {
+            var inputMatrix = new[] {new[] {1, 2}, new[] {3, 4}};
+            var resultMatrix = new[] {new[] {2, 1}, new[] {4, 3}};
+
+            MatrixOperations.ReflectLeftToRight(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        public void ReflectLeftToRight_Reflect3x3_Success()
+        {
+            var inputMatrix = new[] {new[] {1, 2, 3}, new[] {4, 5, 6}, new[] {7, 8, 9}};
+            var resultMatrix = new[] {new[] {3, 2, 1}, new[] {6, 5, 4}, new[] {9, 8, 7}};
+
+            MatrixOperations.ReflectLeftToRight(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        public void ReflectTopToBottom_Reflect1x1_Success()
+        {
+            var inputMatrix = new[] {new[] {1}};
+            var resultMatrix = new[] {new[] {1}};
+
+            MatrixOperations.ReflectTopToBottom(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        public void ReflectTopToBottom_Reflect2x2_Success()
+        {
+            var inputMatrix = new[] {new[] {1, 2}, new[] {3, 4}};
+            var resultMatrix = new[] {new[] {3, 4}, new[] {1, 2}};
+
+            MatrixOperations.ReflectTopToBottom(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        public void ReflectTopToBottom_Reflect3x3_Success()
+        {
+            var inputMatrix = new[] {new[] {1, 2, 3}, new[] {4, 5, 6}, new[] {7, 8, 9}};
+            var resultMatrix = new[] {new[] {7, 8, 9}, new[] {4, 5, 6}, new[] {1, 2, 3}};
+
+            MatrixOperations.ReflectTopToBottom(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
         }
     }
 }
