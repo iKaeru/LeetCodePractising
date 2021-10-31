@@ -85,7 +85,11 @@ namespace LeetCode
 
     public class RotateImageWithMatrixOperation
     {
-        
+        public static void RotateTransposeMainReflectVertically(int[][] matrix)
+        {
+            MatrixOperations.TransposeOverMainDiagonal(matrix);
+            MatrixOperations.ReflectLeftToRight(matrix);
+        }
     }
 
     // Helper class with basic matrix operations
