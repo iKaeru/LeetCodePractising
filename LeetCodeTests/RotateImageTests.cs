@@ -126,6 +126,194 @@ namespace LeetCodeTests
                 Assert.Catch<ArgumentException>(() => RotateImageSolution.Rotate(inputMatrix)).Message);
         }
 
+        // -------- Rotate solution with matrix operations --------
+
+        [Test]
+        public void RotateTransposeMainReflectVertically_1x1_Success()
+        {
+            var inputMatrix = new[] {new[] {1}};
+            var resultMatrix = new[] {new[] {1}};
+
+            RotateImageWithMatrixOperation.TransposeMainReflectVertically(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void RotateTransposeMainReflectVertically_5x5_Success()
+        {
+            var inputMatrix = new[]
+            {
+                new[] {5, 1, 9, 11, 3}, new[] {2, 4, 8, 10, 8}, new[] {13, 3, 6, 7, 18},
+                new[] {15, 14, 12, 16, 17}, new[] {10, 1, 7, 19, 13}
+            };
+            var resultMatrix = new[]
+            {
+                new[] {10, 15, 13, 2, 5}, new[] {1, 14, 3, 4, 1}, new[] {7, 12, 6, 8, 9},
+                new[] {19, 16, 7, 10, 11}, new[] {13, 17, 18, 8, 3}
+            };
+
+            RotateImageWithMatrixOperation.TransposeMainReflectVertically(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void RotateTransposeMainReflectVertically_6x6_Success()
+        {
+            var inputMatrix = new[]
+            {
+                new[] {5, 1, 9, 11, 3, 5}, new[] {2, 4, 8, 10, 8, 9}, new[] {13, 3, 6, 7, 18, 8},
+                new[] {15, 14, 12, 16, 17, 1}, new[] {10, 1, 7, 19, 13, 11}, new[] {11, 5, 3, 2, 15, 10}
+            };
+            var resultMatrix = new[]
+            {
+                new[] {11, 10, 15, 13, 2, 5}, new[] {5, 1, 14, 3, 4, 1}, new[] {3, 7, 12, 6, 8, 9},
+                new[] {2, 19, 16, 7, 10, 11}, new[] {15, 13, 17, 18, 8, 3}, new[] {10, 11, 1, 8, 9, 5}
+            };
+
+            RotateImageWithMatrixOperation.TransposeMainReflectVertically(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void RotateReflectHorizontallyTransposeMain_1x1_Success()
+        {
+            var inputMatrix = new[] {new[] {1}};
+            var resultMatrix = new[] {new[] {1}};
+
+            RotateImageWithMatrixOperation.ReflectHorizontallyTransposeMain(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void RotateReflectHorizontallyTransposeMain_5x5_Success()
+        {
+            var inputMatrix = new[]
+            {
+                new[] {5, 1, 9, 11, 3}, new[] {2, 4, 8, 10, 8}, new[] {13, 3, 6, 7, 18},
+                new[] {15, 14, 12, 16, 17}, new[] {10, 1, 7, 19, 13}
+            };
+            var resultMatrix = new[]
+            {
+                new[] {10, 15, 13, 2, 5}, new[] {1, 14, 3, 4, 1}, new[] {7, 12, 6, 8, 9},
+                new[] {19, 16, 7, 10, 11}, new[] {13, 17, 18, 8, 3}
+            };
+
+            RotateImageWithMatrixOperation.ReflectHorizontallyTransposeMain(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void RotateReflectHorizontallyTransposeMain_6x6_Success()
+        {
+            var inputMatrix = new[]
+            {
+                new[] {5, 1, 9, 11, 3, 5}, new[] {2, 4, 8, 10, 8, 9}, new[] {13, 3, 6, 7, 18, 8},
+                new[] {15, 14, 12, 16, 17, 1}, new[] {10, 1, 7, 19, 13, 11}, new[] {11, 5, 3, 2, 15, 10}
+            };
+            var resultMatrix = new[]
+            {
+                new[] {11, 10, 15, 13, 2, 5}, new[] {5, 1, 14, 3, 4, 1}, new[] {3, 7, 12, 6, 8, 9},
+                new[] {2, 19, 16, 7, 10, 11}, new[] {15, 13, 17, 18, 8, 3}, new[] {10, 11, 1, 8, 9, 5}
+            };
+
+            RotateImageWithMatrixOperation.ReflectHorizontallyTransposeMain(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void RotateTransposeSideReflectHorizontally_1x1_Success()
+        {
+            var inputMatrix = new[] {new[] {1}};
+            var resultMatrix = new[] {new[] {1}};
+
+            RotateImageWithMatrixOperation.TransposeSideReflectHorizontally(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void RotateTransposeSideReflectHorizontally_5x5_Success()
+        {
+            var inputMatrix = new[]
+            {
+                new[] {5, 1, 9, 11, 3}, new[] {2, 4, 8, 10, 8}, new[] {13, 3, 6, 7, 18},
+                new[] {15, 14, 12, 16, 17}, new[] {10, 1, 7, 19, 13}
+            };
+            var resultMatrix = new[]
+            {
+                new[] {10, 15, 13, 2, 5}, new[] {1, 14, 3, 4, 1}, new[] {7, 12, 6, 8, 9},
+                new[] {19, 16, 7, 10, 11}, new[] {13, 17, 18, 8, 3}
+            };
+
+            RotateImageWithMatrixOperation.TransposeSideReflectHorizontally(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void RotateTransposeSideReflectHorizontally_6x6_Success()
+        {
+            var inputMatrix = new[]
+            {
+                new[] {5, 1, 9, 11, 3, 5}, new[] {2, 4, 8, 10, 8, 9}, new[] {13, 3, 6, 7, 18, 8},
+                new[] {15, 14, 12, 16, 17, 1}, new[] {10, 1, 7, 19, 13, 11}, new[] {11, 5, 3, 2, 15, 10}
+            };
+            var resultMatrix = new[]
+            {
+                new[] {11, 10, 15, 13, 2, 5}, new[] {5, 1, 14, 3, 4, 1}, new[] {3, 7, 12, 6, 8, 9},
+                new[] {2, 19, 16, 7, 10, 11}, new[] {15, 13, 17, 18, 8, 3}, new[] {10, 11, 1, 8, 9, 5}
+            };
+
+            RotateImageWithMatrixOperation.TransposeSideReflectHorizontally(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void RotateReflectVerticallyTransposeSide_1x1_Success()
+        {
+            var inputMatrix = new[] {new[] {1}};
+            var resultMatrix = new[] {new[] {1}};
+
+            RotateImageWithMatrixOperation.ReflectVerticallyTransposeSide(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void RotateReflectVerticallyTransposeSide_5x5_Success()
+        {
+            var inputMatrix = new[]
+            {
+                new[] {5, 1, 9, 11, 3}, new[] {2, 4, 8, 10, 8}, new[] {13, 3, 6, 7, 18},
+                new[] {15, 14, 12, 16, 17}, new[] {10, 1, 7, 19, 13}
+            };
+            var resultMatrix = new[]
+            {
+                new[] {10, 15, 13, 2, 5}, new[] {1, 14, 3, 4, 1}, new[] {7, 12, 6, 8, 9},
+                new[] {19, 16, 7, 10, 11}, new[] {13, 17, 18, 8, 3}
+            };
+
+            RotateImageWithMatrixOperation.ReflectVerticallyTransposeSide(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        [Test]
+        public void RotateReflectVerticallyTransposeSide_6x6_Success()
+        {
+            var inputMatrix = new[]
+            {
+                new[] {5, 1, 9, 11, 3, 5}, new[] {2, 4, 8, 10, 8, 9}, new[] {13, 3, 6, 7, 18, 8},
+                new[] {15, 14, 12, 16, 17, 1}, new[] {10, 1, 7, 19, 13, 11}, new[] {11, 5, 3, 2, 15, 10}
+            };
+            var resultMatrix = new[]
+            {
+                new[] {11, 10, 15, 13, 2, 5}, new[] {5, 1, 14, 3, 4, 1}, new[] {3, 7, 12, 6, 8, 9},
+                new[] {2, 19, 16, 7, 10, 11}, new[] {15, 13, 17, 18, 8, 3}, new[] {10, 11, 1, 8, 9, 5}
+            };
+
+            RotateImageWithMatrixOperation.ReflectVerticallyTransposeSide(inputMatrix);
+            Assert.AreEqual(resultMatrix, inputMatrix);
+        }
+
+        // -------- Matrix operations --------
+
         [Test]
         public void TransposeOverMainDiagonal_Transpose1x1_Success()
         {
@@ -243,52 +431,6 @@ namespace LeetCodeTests
             var resultMatrix = new[] {new[] {7, 8, 9}, new[] {4, 5, 6}, new[] {1, 2, 3}};
 
             MatrixOperations.ReflectTopToBottom(inputMatrix);
-            Assert.AreEqual(resultMatrix, inputMatrix);
-        }
-
-        [Test]
-        public void RotateTransposeMainReflectVertically_1x1_Success()
-        {
-            var inputMatrix = new[] {new[] {1}};
-            var resultMatrix = new[] {new[] {1}};
-
-            RotateImageWithMatrixOperation.RotateTransposeMainReflectVertically(inputMatrix);
-            Assert.AreEqual(resultMatrix, inputMatrix);
-        }
-
-        [Test]
-        public void RotateTransposeMainReflectVertically_5x5_Success()
-        {
-            var inputMatrix = new[]
-            {
-                new[] {5, 1, 9, 11, 3}, new[] {2, 4, 8, 10, 8}, new[] {13, 3, 6, 7, 18},
-                new[] {15, 14, 12, 16, 17}, new[] {10, 1, 7, 19, 13}
-            };
-            var resultMatrix = new[]
-            {
-                new[] {10, 15, 13, 2, 5}, new[] {1, 14, 3, 4, 1}, new[] {7, 12, 6, 8, 9},
-                new[] {19, 16, 7, 10, 11}, new[] {13, 17, 18, 8, 3}
-            };
-
-            RotateImageWithMatrixOperation.RotateTransposeMainReflectVertically(inputMatrix);
-            Assert.AreEqual(resultMatrix, inputMatrix);
-        }
-
-        [Test]
-        public void RotateTransposeMainReflectVertically_6x6_Success()
-        {
-            var inputMatrix = new[]
-            {
-                new[] {5, 1, 9, 11, 3, 5}, new[] {2, 4, 8, 10, 8, 9}, new[] {13, 3, 6, 7, 18, 8},
-                new[] {15, 14, 12, 16, 17, 1}, new[] {10, 1, 7, 19, 13, 11}, new[] {11, 5, 3, 2, 15, 10}
-            };
-            var resultMatrix = new[]
-            {
-                new[] {11, 10, 15, 13, 2, 5}, new[] {5, 1, 14, 3, 4, 1}, new[] {3, 7, 12, 6, 8, 9},
-                new[] {2, 19, 16, 7, 10, 11}, new[] {15, 13, 17, 18, 8, 3}, new[] {10, 11, 1, 8, 9, 5}
-            };
-
-            RotateImageWithMatrixOperation.RotateTransposeMainReflectVertically(inputMatrix);
             Assert.AreEqual(resultMatrix, inputMatrix);
         }
     }
